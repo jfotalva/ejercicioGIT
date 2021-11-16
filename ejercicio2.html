@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejercicios JavaScript y POO</title>
+  </head>
+
+  <body></body>
+  <h1>Ejercicio de ordenamiento</h1>
+  <script>
+    console.log(
+      "=================================\nEjercicio ordenamiento - jfotalva\n================================="
+    );
+    let inicio = ["unacadena", 3, 9, 1, 10, 500, 1, 10, , -4567, true];
+
+    console.log("Vector Inicial: ");
+    mostrarVector();
+    let numeros = [];
+
+    seleccionarNumeros();
+
+    inicio = [];
+    let mayor = menor();
+    let pos = 0;
+    let valores = numeros.length;
+
+    while (valores != 0) {
+      mayor = menor();
+      for (let i = 0; i < numeros.length; i++) {
+        if (numeros[i] > mayor) {
+          mayor = numeros[i];
+          pos = i;
+        }
+      }
+      valores--;
+      numeros.splice(pos, 1);
+      inicio.push(mayor);
+    }
+
+    numeros = [];
+    console.log("Vector Ordenado: ");
+    mostrarVector();
+
+    // ----------------- Funciones ---------------------
+    // -------------------------------------------------
+    function seleccionarNumeros() {
+      for (let i = 0; i < inicio.length; i++) {
+        if (typeof inicio[i] == "number") {
+          numeros.push(inicio[i]);
+        }
+      }
+    }
+
+    function menor() {
+      return -999999999999;
+    }
+
+    function mostrarVector() {
+      inicio.forEach((element) => console.log(element));
+      console.log("--------------------------");
+    }
+  </script>
+</html>
